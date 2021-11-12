@@ -61,6 +61,14 @@ body { padding-top: 5rem; }
 
 @import "darkly/bootswatch";
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .navbar-custom {
     border-color: $nav-border-color;
     border-style: none none solid none;
