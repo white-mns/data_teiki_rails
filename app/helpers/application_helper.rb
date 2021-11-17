@@ -15,9 +15,7 @@ module ApplicationHelper
 
     haml_tag :div, class: "alert alert-dismissible alert-danger" do
       haml_concat "現在データの更新中です。"
-      haml_tag :button, type: "button", class: "close", data: {dismiss: "alert"} do
-        haml_concat fa_icon "times"
-      end
+      haml_tag :button, type: "button", class: "btn-close", data: {dismiss: "alert"}
     end
   end
 
