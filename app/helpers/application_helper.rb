@@ -6,6 +6,7 @@ module ApplicationHelper
   def page_title
     title = site_title
     title = @page_title + " | " + title if @page_title
+    title
   end
 
   def uploading_alert(latest_result, uploaded_result)
