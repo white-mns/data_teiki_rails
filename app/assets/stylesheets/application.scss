@@ -210,6 +210,10 @@ th.sep,td.sep{
     border-left: 3px solid $table-border-color;
 }
 
+th.sep_r,td.sep_r{
+    border-right: 3px solid $table-border-color;
+}
+
 tr.sep{
     border-top: 4px solid $table-border-color;
 }
@@ -264,7 +268,7 @@ span.after_space::after {
     h1 {
         font-size: 1.5rem;
     }
-    
+
     table.search_toggle {
         border-collapse: collapse;
         td, th {
