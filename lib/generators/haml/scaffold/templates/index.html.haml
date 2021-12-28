@@ -19,7 +19,7 @@
   %table.search_toggle.table.table-striped.table-bordered.table-hover
     %tbody.pointer
       %tr
-        %td{colspan: "5"}
+        %td{colspan: 5}
           - act_icon(true)
           絞り込み検索
           - act_desc(true)
@@ -42,7 +42,7 @@
       %tr.sep
         %td.indent
         %td.indent= hidden_field_tag :is_form, 1
-        %td{colspan: "3"}
+        %td{colspan: 3}
           - search_submit_button
 
 
@@ -60,7 +60,7 @@
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
       %th= sort_link(@search, :<%= attribute.name %>, <%= "\"" +  attribute.human_name + "\"" %>, default_order: :desc)
 <% end -%>
-      %th.sep{colspan: "2"} 結果リンク
+      %th.sep{colspan: 2} 結果リンク
   %tbody
     - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
       %tr
