@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+//= require popper
 //= require bootstrap-sprockets
 //= require "jquery.cleanQuery"
 //= require chartkick
@@ -91,6 +92,18 @@ function base_first_toggle() {
     });
 }
 
+// ツールチップの表示処理
+function set_tooltip() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        placement = "right";
+
+        if (tooltipTriggerEl.getAttribute("data-bs-placement")) placement = tooltipTriggerEl.getAttribute("data-bs-placement");
+
+        return new bootstrap.Tooltip(tooltipTriggerEl, {placement: placement, html: true});
+    })
+}
+
 // 検索実行後の遷移で説明・検索フォームを閉じる処理
 function exec_searched() {
 	if((params[1] && !(params[1] == "no_result=on" || params[1] == "no_count=on")) || window.innerWidth < 767){
@@ -104,6 +117,7 @@ function exec_searched() {
 // ページ表示時に必ず実行する処理
 function exec_load() {
     set_triggers();
+    set_tooltip();
     base_first_toggle();
 }
 
