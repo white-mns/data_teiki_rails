@@ -25,11 +25,6 @@ function search_close() {
     tbody_0 = $(".search_toggle").children().eq(0);
     tbody_0.find(".act_desc").toggle();
     tbody_0.nextAll().hide();
-    $(".tbody_toggle").find('input:hidden').not("#base_first").each( function(index, element) {
-        if ($(this).val() == "1") {
-            $(this).nextAll().toggle();
-        }
-    });
 };
 
 // 検索遷移時の詳細トグルを開く処理
