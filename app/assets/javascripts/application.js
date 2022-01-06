@@ -31,6 +31,15 @@ function search_close() {
     });
 };
 
+// 検索遷移時の詳細トグルを開く処理
+function detail_toggle_open() {
+    $(".tbody_toggle").find('input:hidden').not("#base_first").each( function(index, element) {
+        if ($(this).val() == "1") {
+            $(this).nextAll().toggle();
+        }
+    });
+};
+
 function desc_close() {
     $(".desc .card-header").each( function() {
         $(this).next().toggle();
@@ -94,6 +103,7 @@ var turboReady = function(){
 
 	if((params[1] && !(params[1] == "no_result=on" || params[1] == "no_count=on")) || window.innerWidth < 767){
         search_close();
+        detail_toggle_open();
         desc_close();
         base_first_toggle(); // 初期遷移時にクエリが入るページではトグル開閉状態が逆になるため、もう一度トグル実行
 	}
