@@ -35,7 +35,7 @@ module MyUtility
       params[ checkbox[:params_name] ] = "on"
     end
 
-    params[:q][checkbox[:query_name]] = checkbox[:value] if params[ checkbox[:params_name] ] == "on"
+    params[:q][query_name] = checkbox[:value] if params[ checkbox[:params_name] ] == "on"
     form_params[ checkbox[:params_name] ] = params[ checkbox[:params_name] ]
   end
 
@@ -163,7 +163,7 @@ module MyUtility
     param_push(params, data_name + "_" + match_suffix + "_any", text)
   end
 
-  # Ransackの検索用パラメータに追加。配列がない場合は作成する 
+  # Ransackの検索用パラメータに追加。配列がない場合は作成する
   def param_push(params, ransack_param, text)
     unless params[:q][ransack_param].is_a?(Array)
       params[:q][ransack_param] = Array.new
