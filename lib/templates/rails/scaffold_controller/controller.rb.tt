@@ -20,6 +20,21 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= plural_table_name %> = @search.result.per(50)
   end
 
+  # GET <%= route_url %>/json_eno
+  def json_eno
+    index
+    render json: @pre_search.group(:e_no).search(params[:q]).result.to_json(only: :e_no)
+  end
+
+  # GET <%= route_url %>/json
+  def json
+    index
+    render json: @pre_search.search(params[:q]).result.to_json(except: [:id, :created_at, :updated_at],
+      include: [
+        {pc_name: {only: [:name, :player]}}
+      ])
+  end
+
   def param_set
     @form_params = {}
 
