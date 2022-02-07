@@ -251,6 +251,24 @@ table tbody.tbody_toggle td:hover{
     color: $gray-darker;
 }
 
+.btn-e-no-concat {
+    border: 0.2rem solid $white;
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,0.2);
+    color: $white;
+    margin-bottom: 1rem;
+}
+
+.btn-p-no-concat .fa {
+    margin-right: 0.5rem;
+}
+
+.btn-e-no-concat:hover {
+    border: 0.2rem solid $white;
+    background-color: $white;
+    color: $gray-darker;
+    text-decoration: none;
+}
+
 input[type=checkbox] {
     cursor: pointer;
 }

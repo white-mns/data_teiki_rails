@@ -99,6 +99,36 @@ function set_tooltip() {
     })
 }
 
+// 検索にヒットしたEno取得用ボタンとクリック時の処理
+function set_e_no_concat_button() {
+    $('.btn-e-no-concat').click(function(){
+        const $this = $(this);
+        setTimeout(function(){
+            $this.find('.fa').remove();
+            $this.prepend('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="margin-right:0.5rem;"></span>');
+        }, 1000);
+
+        $.ajax(
+            {
+                type: 'GET',
+                url: $(this).data('url'),
+                dataType: 'text'
+            }
+        ).then(
+            function(data){
+                $('.btn-e-no-concat').after('<div><textarea id="textarea-e-no-concat" class="form-control">'+ data +'</textarea></div>');
+                $('.btn-e-no-concat').hide();
+            },
+
+            function(){
+                $('.btn-e-no-concat').text("読み込み失敗");
+            }
+        );
+
+        return false;
+    });
+}
+
 // 検索実行後の遷移で説明・検索フォームを閉じる処理
 function exec_searched() {
     var url     = location.href;
@@ -116,6 +146,7 @@ function exec_searched() {
 function exec_load() {
     set_triggers();
     set_tooltip();
+    set_e_no_concat_button();
     base_first_toggle();
 }
 
