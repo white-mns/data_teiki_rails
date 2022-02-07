@@ -20,10 +20,10 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= plural_table_name %> = @search.result.per(50)
   end
 
-  # GET <%= route_url %>/json_eno
-  def json_eno
+  # GET <%= route_url %>/eno_text
+  def eno_text
     index
-    render json: @pre_search.group(:e_no).search(params[:q]).result.to_json(only: :e_no)
+    render plain: @pre_search.group(:e_no).search(params[:q]).result.pluck(:e_no).join('/')
   end
 
   # GET <%= route_url %>/json
