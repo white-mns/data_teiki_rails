@@ -21,12 +21,14 @@ module ApplicationHelper
   end
 
   def pc_name_text(e_no, pc_name)
-    e_no_text = "(" + sprintf("%d",e_no) + ")"
     if pc_name then
-      pc_name.name.html_safe + e_no_text
-    else
-      e_no_text
+      haml_concat pc_name.name
     end
+    haml_concat "("
+    haml_tag :a, href: "https://example.com/"+sprintf("%d",e_no)+".html", target: "_blank" do
+      haml_concat sprintf("%d",e_no)
+    end
+    haml_concat ")"
   end
 
   def character_link(e_no)
