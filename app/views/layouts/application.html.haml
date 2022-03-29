@@ -17,7 +17,7 @@
     %nav.navbar.navbar-expand-md.fixed-top.navbar-dark.bg-light.navbar-custom.p-0
       .container
         = link_to site_title, root_path, :class => "navbar-brand"
-        %button.navbar-toggler{type: "button", data: {toggle: "collapse", target: "#navbarNavDropdown"}, area: {controls: "navbarNavDropdown", expanded: "false", label: "Toggle navigation"}}
+        %button.navbar-toggler{type: "button", data: bs:{{toggle: "collapse", target: "#navbarNavDropdown"}}, area: {controls: "navbarNavDropdown", expanded: "false", label: "Toggle navigation"}}
           %span.navbar-toggler-icon
         .collapse.navbar-collapse#navbarNavDropdown
           %ul.navbar-nav
@@ -39,7 +39,7 @@
         .col-md-12
           - uploading_alert(@latest_result, @uploaded_result)
           = yield
-      
+
       %footer
         %p
           制作#{link_to "@white_mns", "http://twitter.com/white_mns"}
